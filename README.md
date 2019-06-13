@@ -11,6 +11,7 @@ I) Downloading the dataset and extracting to folder
 
 
 II) Running different models - training scripts 
-
+- a) Run poseloss_new_arch.py with default command line arguments. Specify path to where data is otherwise.
+- b)
 
 III) Generating .csv file results and uploading to Kaggle
