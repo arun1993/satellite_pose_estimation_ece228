@@ -41,13 +41,15 @@ model_urls = {
 class myyoloModel(nn.Module):
     def __init__(self,model):
         """Load the pretrained ResNet-50 and replace top fc layer."""
-        super(myModel, self).__init__()
+        super(myyoloModel, self).__init__()
        
         #resnet = models.resnet50(pretrained=True)
         self.model = model
         
-        modules = list(self.model.children())[:-1]  # delete the last YOLO layer.
-        self.resnet = nn.Sequential(*modules)
+        print("YOLO",len(list(list(self.model.children())[0].children())))
+        
+        modules = list(list(self.model.children())[0].children())[0:-1]  # delete the last YOLO layer.
+        self.model = nn.Sequential(*modules)
         
         
         self.fc_orie = nn.Linear(2048, 4)
@@ -243,8 +245,8 @@ def main(speed_root, epochs, batch_size):
     #initialized_model = myorigModel(Bottleneck, [3, 4, 6, 3],1000)
      # Initiate model
         
-    model = Darknet("config/yolov3.cfg")
-    model.apply(weights_init_normal)
+    model = Darknet("yolov3.cfg")
+    #model.apply(weights_init_normal)
 
     model.load_darknet_weights("./darknet53.conv.74")
             
