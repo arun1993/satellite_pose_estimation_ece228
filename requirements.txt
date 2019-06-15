@@ -1,0 +1,14 @@
+Requirements:
+============
+Libraries installation:
+======================
+pip install numpy pillow matplotlib
+pip install torch torchvision  
+pip install tensorflow-gpu  
+pip install jupyter  
+
+Training:
+=========
+python [path to python file] --dataset [path to downloaded dataset] --epochs [num epochs] --batch [batch size]
+
+As the training is finished, the model is evaluated on all images of the training and real_training sets, and a CSV file is generated that can be directly submitted on the competition page.
