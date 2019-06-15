@@ -47,7 +47,7 @@ def train_model(model, scheduler, optimizer, criterion, dataloaders, device, dat
 #                     print(labels.shape)
                     loss_q = criterion(outputs[:, :4], labels[:, :4].float().cuda())
                     loss_r = criterion(outputs[:, 5:], labels[:, 5:].float().cuda())
-                    loss = 18*loss_q + loss_r
+                    loss = 22*loss_q + loss_r
 
                     if phase == 'train':
                         loss.backward()
@@ -126,7 +126,7 @@ def main(speed_root, epochs, batch_size):
     evaluate_model(trained_model, test_set, device, submission, batch_size, real=False)
     evaluate_model(trained_model, real_test_set, device, submission, batch_size, real=True)
 
-    submission.export(suffix='pytorch_resnet50_L1loss_18q_1r_False_pretrained')
+    submission.export(suffix='pytorch_resnet50_L1loss_22q_1r')
     return
 
 
