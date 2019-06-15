@@ -140,7 +140,7 @@ def main(speed_root, epochs, batch_size):
 # parser.add_argument('--batch', help='number of samples in a batch.', default=32)
 # args = parser.parse_args()
 
-main('/home/shehzeen/ECE228/speed/', 36, 32)
+main('/shehzeen/ECE228/speed/', 36, 32)
 
 
 # In[ ]:
